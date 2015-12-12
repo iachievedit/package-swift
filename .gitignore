@@ -8,3 +8,5 @@ swiftpm
 swift-corelibs-xctest
 swift-corelibs-foundation
 build
+install
+swift.tar.gz
