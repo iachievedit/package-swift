@@ -1,0 +1,10 @@
+swift
+llvm
+clang
+lldb
+cmark
+llbuild
+swiftpm
+swift-corelibs-xctest
+swift-corelibs-foundation
+build
