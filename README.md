@@ -1,7 +1,7 @@
 # package-swift
 A set of helper scripts for building and packaging Swift on Ubuntu Linux
 
-See companion instructions at http://dev.iachieved.it/iachievedit
+See companion instructions at http://dev.iachieved.it/iachievedit/keeping-up-with-open-source-swift/
 
 Usage:
 
