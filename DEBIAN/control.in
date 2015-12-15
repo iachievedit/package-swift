@@ -1,0 +1,9 @@
+Package: swift-2.2
+Version: 1:2.2-0ubuntu4~trusty1
+Architecture: amd64
+Maintainer: iachievedit (support@iachieved.it)
+Depends: clang-3.6, libicu-dev
+Section: development
+Priority: optional
+Homepage: http://dev.iachieved.it/iachievedit/swift
+Description: Open Source Swift
