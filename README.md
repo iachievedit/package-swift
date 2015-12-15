@@ -12,3 +12,6 @@ Usage:
 ./clean.sh to delete the build and install directory
 ./distclean.sh to delete everything except the helper scripts
 ```
+
+Internally I use ```packagedeb.sh``` to create an Debian package for 
+distribution via a repository and ```apt-get```.
