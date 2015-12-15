@@ -1,7 +1,13 @@
 # package-swift
 A set of helper scripts for building and packaging Swift on Ubuntu Linux
 
-See companion instructions at http://dev.iachieved.it/iachievedit
+See companion instructions at http://dev.iachieved.it/iachievedit/keeping-up-with-open-source-swift/
+
+Before executing any scripts will you want to have all of the build prerequisites installed:
+
+```
+sudo apt-get install git cmake ninja-build clang uuid-dev libicu-dev icu-devtools libbsd-dev libedit-dev libxml2-dev libsqlite3-dev swig libpython-dev libncurses5-dev pkg-config
+```
 
 Usage:
 
