@@ -1,4 +1,20 @@
 #!/bin/bash
+#
+#
+function usage {
+  echo "Usage:  UBUNTU_VERSION= UBUNTU_DISTRO= debpackage.sh"
+  exit
+}
+
+if [ -z "$UBUNTU_VERSION" ]; then
+  echo "UBUNTU_VERSION is not set"
+  usage
+fi
+#if [ -z "$UBUNTU_DISTRO" ]; then
+#  echo "UBUNTU_DISTRO is not set"
+#  usage
+#fi
+
 PACKAGE_NAME=swift
 PACKAGE_VERSION=2.2
 PACKAGE_DIR=${PACKAGE_NAME}-${PACKAGE_VERSION}
@@ -32,8 +48,8 @@ popd > /dev/null
 
 # Replace control.in with control
 pushd $PACKAGE_DIR/DEBIAN > /dev/null
-# perl -pe "s/##GITREVISION##/${SWIFTREV}/g" control.in > control
-cp control.in control
+perl -p -e "s/##UBUNTU_VERSION##/${UBUNTU_VERSION}/g; s/##UBUNTU_DISTRO##/${UBUNTU_DISTRO}/g" control.in > control
+#cp control.in control
 cat << EOF >> control
  This is a packaged version of Open Source Swift 2.2 built from
  the following git revisions of the Apple Github repositories:
