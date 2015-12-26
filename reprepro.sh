@@ -1,4 +1,5 @@
 #!/bin/sh
-REPO=$1
-sudo reprepro -b /tank/repo/$REPO includedeb $REPO swift-2.2.deb
-s3cmd --verbose --acl-public --delete-removed sync /tank/repo/$REPO/ s3://iachievedit-$REPO/                         
+CODENAME=$1
+PACKAGE=$2
+sudo reprepro -b /tank/repo/iachievedit includedeb $CODENAME $PACKAGE
+s3cmd --verbose --acl-public --delete-removed sync /tank/repo/iachievedit/ s3://iachievedit-repos/
