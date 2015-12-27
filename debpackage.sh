@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-#
 function usage {
   echo "Usage:  UBUNTU_VERSION= UBUNTU_DISTRO= debpackage.sh"
   exit
@@ -10,14 +9,25 @@ if [ -z "$UBUNTU_VERSION" ]; then
   echo "UBUNTU_VERSION is not set"
   usage
 fi
+
+if [[ "$UBUNTU_DISTRO" =~ trusty ]]; then
+  CLANG="clang-3.6"
+else
+  CLANG="clang (>= 3.6)"
+fi
+
 #if [ -z "$UBUNTU_DISTRO" ]; then
 #  echo "UBUNTU_DISTRO is not set"
 #  usage
 #fi
 
+ARCH=${ARCH:-amd64}
 PACKAGE_NAME=swift
 PACKAGE_VERSION=2.2
 PACKAGE_DIR=${PACKAGE_NAME}-${PACKAGE_VERSION}
+
+echo "Creating package for $ARCH"
+
 rm -rf $PACKAGE_DIR
 mkdir -p $PACKAGE_DIR
 rsync -a install/usr/ ${PACKAGE_DIR}/usr/
