@@ -58,7 +58,7 @@ popd > /dev/null
 
 # Replace control.in with control
 pushd $PACKAGE_DIR/DEBIAN > /dev/null
-perl -p -e "s/##UBUNTU_VERSION##/${UBUNTU_VERSION}/g; s/##UBUNTU_DISTRO##/${UBUNTU_DISTRO}/g" control.in > control
+perl -p -e "s/##UBUNTU_VERSION##/${UBUNTU_VERSION}/g; s/##UBUNTU_DISTRO##/${UBUNTU_DISTRO}/g; s/##ARCH##/${ARCH}/g; s/##CLANG##/${CLANG}/g" control.in > control
 #cp control.in control
 cat << EOF >> control
  This is a packaged version of Open Source Swift 2.2 built from
