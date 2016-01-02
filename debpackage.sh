@@ -31,6 +31,10 @@ echo "Creating package for $ARCH"
 rm -rf $PACKAGE_DIR
 mkdir -p $PACKAGE_DIR
 rsync -a install/usr/ ${PACKAGE_DIR}/usr/
+ISIZE=`du -sb -B1024 ${PACKAGE_DIR}/usr/ |cut -f1`
+
+echo "Estimated size is ${ISIZE} KB"
+
 cp -R DEBIAN $PACKAGE_DIR
 
 # Remove extraneous /usr/local/, there is nothing in it
@@ -58,7 +62,7 @@ popd > /dev/null
 
 # Replace control.in with control
 pushd $PACKAGE_DIR/DEBIAN > /dev/null
-perl -p -e "s/##UBUNTU_VERSION##/${UBUNTU_VERSION}/g; s/##UBUNTU_DISTRO##/${UBUNTU_DISTRO}/g; s/##ARCH##/${ARCH}/g; s/##CLANG##/${CLANG}/g" control.in > control
+perl -p -e "s/##UBUNTU_VERSION##/${UBUNTU_VERSION}/g; s/##UBUNTU_DISTRO##/${UBUNTU_DISTRO}/g; s/##ARCH##/${ARCH}/g; s/##CLANG##/${CLANG}/g; s/##ISIZE##/${ISIZE}/g " control.in > control
 #cp control.in control
 cat << EOF >> control
  This is a packaged version of Open Source Swift 2.2 built from

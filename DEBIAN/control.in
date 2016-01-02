@@ -1,8 +1,9 @@
 Package: swift-2.2
 Version: 1:2.2-0ubuntu##UBUNTU_VERSION####UBUNTU_DISTRO##
-Architecture: amd64
+Architecture: ##ARCH##
+Installed-Size: ##ISIZE##
 Maintainer: iachievedit (support@iachieved.it)
-Depends: clang (>= 3.6), libicu-dev
+Depends: ##CLANG##, libicu-dev
 Section: development
 Priority: optional
 Homepage: http://dev.iachieved.it/iachievedit/swift
