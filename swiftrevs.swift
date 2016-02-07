@@ -26,7 +26,7 @@ func getGitRevision(dirname:String) -> String {
   while fgets(&buf, Int32(BUFSIZE), pipe) != nil {
     rev = String.fromCString(buf)!
   }
-  rev = rev[0...9]
+ rev = rev[0...9]
 
   chdir(cwd)
 
