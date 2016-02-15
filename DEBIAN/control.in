@@ -1,5 +1,6 @@
-Package: swift-2.2
-Version: 1:2.2-0ubuntu##UBUNTU_VERSION####UBUNTU_DISTRO##
+Package: swift-3.0
+Conflicts: swift-2.2
+Version: 1:3.0-0ubuntu##UBUNTU_VERSION####UBUNTU_DISTRO##
 Architecture: ##ARCH##
 Installed-Size: ##ISIZE##
 Maintainer: iachievedit (support@iachieved.it)

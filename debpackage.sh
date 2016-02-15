@@ -16,14 +16,9 @@ else
   CLANG="clang (>= 3.6)"
 fi
 
-#if [ -z "$UBUNTU_DISTRO" ]; then
-#  echo "UBUNTU_DISTRO is not set"
-#  usage
-#fi
-
 ARCH=${ARCH:-amd64}
 PACKAGE_NAME=swift
-PACKAGE_VERSION=2.2
+PACKAGE_VERSION=3.0
 PACKAGE_DIR=${PACKAGE_NAME}-${PACKAGE_VERSION}
 
 echo "Creating package for $ARCH"
@@ -65,7 +60,7 @@ pushd $PACKAGE_DIR/DEBIAN > /dev/null
 perl -p -e "s/##UBUNTU_VERSION##/${UBUNTU_VERSION}/g; s/##UBUNTU_DISTRO##/${UBUNTU_DISTRO}/g; s/##ARCH##/${ARCH}/g; s/##CLANG##/${CLANG}/g; s/##ISIZE##/${ISIZE}/g " control.in > control
 #cp control.in control
 cat << EOF >> control
- This is a packaged version of Open Source Swift 2.2 built from
+ This is a packaged version of Open Source Swift $PACKAGE_VERSION built from
  the following git revisions of the Apple Github repositories:
        Clang:  $CLANGREV
         LLVM:  $LLVMREV
