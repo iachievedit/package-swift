@@ -23,4 +23,8 @@ Internally I use ```packagedeb.sh``` to create an Debian package for
 distribution via a repository and ```apt-get```.
 
 Apple CI Build Status
+Ubuntu 14.04
 [![Build Status](https://ci.swift.org/buildStatus/icon?job=oss-swift-package-linux-ubuntu-14_04)](https://ci.swift.org/view/Packages/job/oss-swift-package-linux-ubuntu-14_04/)
+
+Ubuntu 15.10
+[![Build Status](https://ci.swift.org/buildStatus/icon?job=oss-swift-package-linux-ubuntu-15_10)](https://ci.swift.org/view/Packages/job/oss-swift-package-linux-ubuntu-15_10/)
