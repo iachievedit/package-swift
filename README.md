@@ -22,7 +22,10 @@ Usage:
 Internally I use ```packagedeb.sh``` to create an Debian package for 
 distribution via a repository and ```apt-get```.
 
-## Apple CI Build Status
+## Swift CI Build Status
+
+The Swift continuous integration build server hosts _packaging_ jobs that build and package all of the Swift components for OS X, Ubuntu 14.04, and Ubuntu 15.10.  If the `package.sh` script in this repository fails you may want to look at the current status of the canonical builds:
+
 * Ubuntu 14.04
 [![Build Status](https://ci.swift.org/buildStatus/icon?job=oss-swift-package-linux-ubuntu-14_04)](https://ci.swift.org/view/Packages/job/oss-swift-package-linux-ubuntu-14_04/)
 * Ubuntu 15.10
