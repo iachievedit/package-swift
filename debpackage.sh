@@ -19,7 +19,8 @@ fi
 ARCH=${ARCH:-amd64}
 PACKAGE_NAME=swift
 PACKAGE_VERSION=3.0
-PACKAGE_DIR=${PACKAGE_NAME}-${PACKAGE_VERSION}
+PACKAGE_ROOT=${PACKAGE_NAME}-${PACKAGE_VERSION}
+PACKAGE_DIR=${PACKAGE_ROOT}/opt/swift/swift-3.0
 
 echo "Creating package for $ARCH"
 
@@ -30,7 +31,7 @@ ISIZE=`du -sb -B1024 ${PACKAGE_DIR}/usr/ |cut -f1`
 
 echo "Estimated size is ${ISIZE} KB"
 
-cp -R DEBIAN $PACKAGE_DIR
+cp -R DEBIAN $PACKAGE_ROOT
 
 # Remove extraneous /usr/local/, there is nothing in it
 rm -rf $PACKAGE_DIR/usr/local
@@ -56,7 +57,7 @@ COREREV=${REV:0:10}
 popd > /dev/null
 
 # Replace control.in with control
-pushd $PACKAGE_DIR/DEBIAN > /dev/null
+pushd $PACKAGE_ROOT/DEBIAN > /dev/null
 perl -p -e "s/##UBUNTU_VERSION##/${UBUNTU_VERSION}/g; s/##UBUNTU_DISTRO##/${UBUNTU_DISTRO}/g; s/##ARCH##/${ARCH}/g; s/##CLANG##/${CLANG}/g; s/##ISIZE##/${ISIZE}/g " control.in > control
 #cp control.in control
 cat << EOF >> control
@@ -70,4 +71,4 @@ EOF
 
 rm control.in
 popd > /dev/null
-fakeroot dpkg --build ${PACKAGE_DIR}
+fakeroot dpkg --build ${PACKAGE_ROOT}
