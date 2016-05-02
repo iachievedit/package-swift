@@ -7,13 +7,11 @@ Subject: [PATCH] Proof of concept fix for Glibc import (triple is wrong)
  lib/ClangImporter/ClangImporter.cpp | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/lib/ClangImporter/ClangImporter.cpp b/lib/ClangImporter/ClangImport
-er.cpp
+diff --git a/lib/ClangImporter/ClangImporter.cpp b/lib/ClangImporter/ClangImporter.cpp
 index 3178ed1..1e25ced 100644
 --- a/lib/ClangImporter/ClangImporter.cpp
 +++ b/lib/ClangImporter/ClangImporter.cpp
-@@ -398,7 +398,7 @@ getNormalInvocationArguments(std::vector<std::string> &invoc
-ationArgStrs,
+@@ -398,7 +398,7 @@ getNormalInvocationArguments(std::vector<std::string> &invocationArgStrs,
 
      llvm::sys::path::append(
        GlibcModuleMapPath,
