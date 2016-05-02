@@ -1,0 +1,26 @@
+From fd72ad0547c0115b1d31f27040e05aecfdbdd315 Mon Sep 17 00:00:00 2001
+From: Ryan Lovelett <ryan@lovelett.me>
+Date: Sun, 1 May 2016 22:38:52 +0000
+Subject: [PATCH] Proof of concept fix for Glibc import (triple is wrong)
+
+---
+ lib/ClangImporter/ClangImporter.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/ClangImporter/ClangImporter.cpp b/lib/ClangImporter/ClangImport
+er.cpp
+index 3178ed1..1e25ced 100644
+--- a/lib/ClangImporter/ClangImporter.cpp
++++ b/lib/ClangImporter/ClangImporter.cpp
+@@ -398,7 +398,7 @@ getNormalInvocationArguments(std::vector<std::string> &invoc
+ationArgStrs,
+
+     llvm::sys::path::append(
+       GlibcModuleMapPath,
+-      swift::getPlatformNameForTriple(triple), triple.getArchName(),
++      swift::getPlatformNameForTriple(triple), "armv7",
+       "glibc.modulemap");
+
+     // Only specify the module map if that file actually exists.
+--
+2.7.4
