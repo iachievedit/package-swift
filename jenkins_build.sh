@@ -4,8 +4,9 @@
 # http://swift-arm.ddns.net
 #
 INSTALL_DIR=${WORKSPACE}/install
+TESTS=$1
 
-./swift/utils/build-script -R --lldb -- --install-swift --install-lldb --install-prefix=/opt/swift/swift-3.0/usr --install-destdir="$INSTALL_DIR" '--swift-install-components=autolink-driver;compiler;clang-builtin-headers;stdlib;sdk-overlay;license' --reconfigure
+./swift/utils/build-script -R $TESTS --lldb -- --install-swift --install-lldb --install-prefix=/opt/swift/swift-3.0/usr --install-destdir="$INSTALL_DIR" '--swift-install-components=autolink-driver;compiler;clang-builtin-headers;stdlib;sdk-overlay;license' --reconfigure
 
 # preset style, we aren't using this right now
 #ARCH=`arch`
