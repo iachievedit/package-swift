@@ -1,0 +1,25 @@
+From a2df1ea1f7552ead6ced1f0d53ec6b2c9a521318 Mon Sep 17 00:00:00 2001
+From: Ryan Lovelett <ryan@lovelett.me>
+Date: Sat, 7 May 2016 02:20:08 +0000
+Subject: [PATCH] A proposed fix
+
+---
+ lib/script.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/lib/script.py b/lib/script.py
+index 9a55784..7bd49d9 100644
+--- a/lib/script.py
++++ b/lib/script.py
+@@ -99,6 +99,8 @@ TARGET_CFLAGS         = -fcolor-diagnostics -fdollars-in-identifiers -fblocks -f
+         c_flags += Configuration.current.extra_c_flags
+ 
+         swift_flags = "\nTARGET_SWIFTCFLAGS    = -I${SDKROOT}/lib/swift/" + Configuration.current.target.swift_sdk_name + " -Xcc -fblocks "
++        if Configuration.current.target.swift_arch is "armv7":
++            swift_flags += "-Xcc -D_VA_LIST "
+         if swift_triple is not None:
+             swift_flags += "-target ${SWIFT_TARGET} "
+         if Configuration.current.system_root is not None:
+-- 
+2.7.4
+
