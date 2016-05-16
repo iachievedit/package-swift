@@ -13,3 +13,6 @@ swift.tar.gz
 compiler-rt
 swift-corelibs-libdispatch
 swift-integration-tests
+cache
+.DS_Store
+sysroot
