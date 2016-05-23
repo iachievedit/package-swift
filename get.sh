@@ -1,11 +1,9 @@
-#!/bin/sh
-git clone https://github.com/apple/swift.git swift
-git clone https://github.com/apple/swift-llvm.git llvm
-git clone https://github.com/apple/swift-clang.git clang
-git clone https://github.com/apple/swift-lldb.git lldb
-git clone https://github.com/apple/swift-cmark.git cmark
-git clone https://github.com/apple/swift-llbuild.git llbuild
-git clone https://github.com/apple/swift-package-manager.git swiftpm
-git clone https://github.com/apple/swift-corelibs-xctest.git
-git clone https://github.com/apple/swift-corelibs-foundation.git
-git clone https://github.com/apple/swift-integration-tests swift-integration-tests
+#!/bin/bash
+git clone --branch swift-2.2-branch https://github.com/apple/swift
+./swift/utils/update-checkout --clone --branch swift-2.2-branch
+ARCH=`arch`
+if [[ $ARCH =~ arm ]]; then
+  echo "+ Building for ARM, checkout hpux735 LLVM"
+  rm -rf llvm
+  git clone --branch arm https://github.com/hpux735/swift-llvm llvm 
+fi
