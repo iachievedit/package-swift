@@ -1,2 +1,2 @@
 #!/bin/sh
-./swift/utils/update-checkout --all
+./swift/utils/update-checkout --branch swift-2.2-branch
