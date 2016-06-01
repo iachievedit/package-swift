@@ -23,3 +23,24 @@ index 9a55784..7bd49d9 100644
 -- 
 2.7.4
 
+From dee7a2fdcd32be4f88b5b52e31c97e65c8432c10 Mon Sep 17 00:00:00 2001
+From: SpringsUp <springsupport@me.com>
+Date: Tue, 31 May 2016 15:58:05 +0200
+Subject: [PATCH] Remove stdio import Fixes building on linux (arm)
+
+---
+ CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h b/CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h
+index 41eb6c1..74a654d 100644
+--- a/CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h
++++ b/CoreFoundation/Base.subproj/SwiftRuntime/CoreFoundation.h
+@@ -34,7 +34,6 @@
+ #include <setjmp.h>
+ #include <signal.h>
+ #include <stddef.h>
+-#include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <time.h>
