@@ -1,12 +1,11 @@
 import Glibc
 
 extension String {
-  subscript (r: Range<Int>) -> String {
+  subscript (r: CountableClosedRange<Int>) -> String {
     get {
-      let startIndex = self.startIndex.advanced(by:r.startIndex)
-      let endIndex   = self.startIndex.advanced(by:r.endIndex)
-            
-      return self[Range(startIndex..<endIndex)]
+      let startIndex = self.characters.index(self.characters.startIndex, offsetBy:r.lowerBound)
+      let endIndex   = self.characters.index(self.characters.startIndex, offsetBy:r.upperBound)
+      return self[startIndex..<endIndex]
     }
   }
 }
