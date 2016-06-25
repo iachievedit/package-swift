@@ -1,3 +1,4 @@
+// Copyright 2016 iAchieved.it LLC MIT License
 import Glibc
 
 extension String {
