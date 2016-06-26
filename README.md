@@ -9,6 +9,12 @@ Before executing any scripts will you want to have all of the build prerequisite
 sudo apt-get install git cmake ninja-build clang uuid-dev libicu-dev icu-devtools libbsd-dev libedit-dev libxml2-dev libsqlite3-dev swig libpython-dev libncurses5-dev pkg-config
 ```
 
+For compiling with the `libdispatch` branch of this repository you will also need to add:
+
+```
+sudo apt-get install autoconf libtool pkg-config systemtap-sdt-dev libblocksruntime-dev libkqueue-dev libbsd-dev
+```
+
 Usage:
 
 ```
