@@ -22,57 +22,29 @@ func exec(_ command:String) -> String {
   return output
 }
 
-func gitRevision(_ directory:String) -> String {
-
-  let cwd     = String(cString:getcwd(nil, 0))
-  let rc      = chdir(directory)
-  
-  guard rc == 0 else {
-    return "ERROR"
-  }
-  
-  var rev = exec("/usr/bin/git rev-parse HEAD")
-  rev = rev[0...9]
-
-  chdir(cwd)
-
-  return rev
+func gitRevision() -> String {
+  return exec("/usr/bin/git rev-parse HEAD")[0...9]
 }
 
-func gitFetchURL(_ dirname:String) -> String {
-  let cwd     = String(cString:getcwd(nil, 0))
-  let rc      = chdir(dirname)
-  
-  guard rc == 0 else {
-    return "ERROR"
-  }
-  
-  let url = exec("/usr/bin/git remote show origin -n|grep Fetch| echo -n `cut --characters=14-`")
-  
-  chdir(cwd)
-  
-  return url
+func gitFetchURL() -> String {
+  return exec("/usr/bin/git remote show origin -n|grep Fetch| echo -n `cut --characters=14-`")
 }
 
-func gitBranch(_ dirname:String) -> String {
-  let cwd     = String(cString:getcwd(nil, 0))
-  let rc      = chdir(dirname)
-
-  guard rc == 0 else {
-    return "ERROR"
-  }
-
-  let url  = exec("/usr/bin/git branch | echo -n `cut --characters=2-`")
-  chdir(cwd)
-
-  return url
+func gitBranch() -> String {
+  return exec("/usr/bin/git branch | echo -n `cut --characters=2-`")
 }
 
 let dirs = ["swift", "llvm", "clang", "lldb", "compiler-rt", "cmark", "llbuild", "swiftpm", "swift-corelibs-xctest", "swift-corelibs-foundation", "swift-integration-tests", "swift-corelibs-libdispatch"]
 
 for dir in dirs {
-  let fetch  = gitFetchURL(dir)
-  let rev    = gitRevision(dir)
-  let branch = gitBranch(dir)
+  let cwd     = String(cString:getcwd(nil, 0))
+  let rc      = chdir(dir) // pushd
+  guard rc == 0 else {
+    continue
+  }
+  let fetch  = gitFetchURL()
+  let rev    = gitRevision()
+  let branch = gitBranch()
   print("\(dir),\(fetch),\(branch),\(rev)")
+  chdir(cwd) // popd
 }
