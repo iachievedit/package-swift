@@ -1,9 +1,9 @@
 #!/bin/bash
 git clone https://github.com/apple/swift.git swift
 ./swift/utils/update-checkout --clone
-ARCH=`arch`
-if [[ $ARCH =~ arm ]]; then
-  echo "+ Building for ARM, checkout hpux735 LLVM"
-  rm -rf llvm
-  git clone --branch arm https://github.com/hpux735/swift-llvm llvm 
-fi
+rm -rf swift-corelibs-libdispatch
+git clone https://github.com/hpux735/swift-corelibs-libdispatch swift-corelibs-libdispatch
+cd swift-corelibs-libdispatch
+git submodule init
+git submodule update
+cd ..
