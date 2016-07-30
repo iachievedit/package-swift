@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone https://github.com/apple/swift.git swift
+git clone https://github.com/iachievedit/swift.git swift
 ./swift/utils/update-checkout --clone
 ARCH=`arch`
 if [[ $ARCH =~ arm ]]; then
