@@ -14,12 +14,10 @@ done
 
 ARCH=`arch`
 if [[ $ARCH =~ arm ]]; then
-  echo "+ Building for ARM, remove hpux735 LLVM"
-  rm -rf llvm
-fi
-./swift/utils/update-checkout
-if [[ $ARCH =~ arm ]]; then
-  echo "+ Building for ARM, checkout hpux735 LLVM"
-  rm -rf llvm
-  git clone --branch arm https://github.com/hpux735/swift-llvm llvm
+  echo "+ Building for ARM, skip repository llvm (we use hpux735/llvm)"
+  ./swift/utils/update-checkout --skip-repository llvm
+  echo "+ git pull on hpux735/llvm"
+  cd llvm && git pull
+else
+  ./swift/utils/update-checkout
 fi
