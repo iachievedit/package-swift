@@ -13,6 +13,9 @@ swift.tar.gz
 compiler-rt
 swift-corelibs-libdispatch
 swift-integration-tests
+swift-xcode-playground-support
+libiconv-libicu-android
+
 cache
 .DS_Store
 sysroot
