@@ -1,0 +1,20 @@
+diff --git a/utils/build-presets.ini b/utils/build-presets.ini
+index 9442a59..a49aecc 100644
+--- a/utils/build-presets.ini
++++ b/utils/build-presets.ini
+@@ -672,6 +672,7 @@ llbuild
+ lldb
+ # Not all tests pass, currently
+ #test
++libdispatch
+ foundation
+ swiftpm
+ xctest
+@@ -683,6 +684,7 @@ dash-dash
+ install-swift
+ install-lldb
+ install-llbuild
++install-libdispatch
+ install-foundation
+ install-swiftpm
+ install-xctest
