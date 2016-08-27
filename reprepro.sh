@@ -18,6 +18,6 @@ if [ -z "$PACKAGE" ]; then
   usage
 fi
 
-
-sudo reprepro -b /tank/repo/iachievedit includedeb $CODENAME $PACKAGE
-s3cmd --verbose --acl-public --delete-removed sync /tank/repo/iachievedit/ s3://iachievedit-repos/
+REPO_ROOT=/tank/repo
+sudo reprepro -b $REPO_ROOT includedeb $CODENAME $PACKAGE
+s3cmd --verbose --acl-public --delete-removed sync $REPO_ROOT/ s3://iachievedit-repos/
