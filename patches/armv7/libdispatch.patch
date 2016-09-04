@@ -1,0 +1,13 @@
+diff --git a/src/shims/linux_stubs.h b/src/shims/linux_stubs.h
+index e133049..b3465ed 100644
+--- a/src/shims/linux_stubs.h
++++ b/src/shims/linux_stubs.h
+@@ -98,4 +98,8 @@ typedef void (*dispatch_mach_msg_destructor_t)(void*);
+ 
+ #define NOTE_VM_PRESSURE ({LINUX_PORT_ERROR(); 0;})
+ 
++#ifndef PAGE_SIZE
++#define PAGE_SIZE 4096
++#endif
++
+ #endif

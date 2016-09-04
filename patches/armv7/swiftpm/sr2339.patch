@@ -1,0 +1,26 @@
+From 0268214b5477ca338b502c90aaa3e9ba50b68e18 Mon Sep 17 00:00:00 2001
+From: Jose Marcelino <jmarcelino@users.noreply.github.com>
+Date: Sun, 14 Aug 2016 20:52:10 +0100
+Subject: [PATCH] =?UTF-8?q?Fixes=20=E2=80=98Illegal=20instruction=E2=80=99?=
+ =?UTF-8?q?=20crash=20caused=20by=20SR-2339=20(#605)?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ Sources/PackageDescription/Version.swift | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Sources/PackageDescription/Version.swift b/Sources/PackageDescription/Version.swift
+index 5c56bc9..a22d3e0 100644
+--- a/Sources/PackageDescription/Version.swift
++++ b/Sources/PackageDescription/Version.swift
+@@ -56,7 +56,7 @@ extension Version: Hashable {
+         if let build = buildMetadataIdentifier {
+             result = (result &* mul) ^ UInt64(build.hashValue)
+         }
+-        return Int(bitPattern: UInt(result))
++        return Int(truncatingBitPattern: result)
+     }
+ }
+ 
