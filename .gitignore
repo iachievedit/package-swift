@@ -9,6 +9,7 @@
 /swift-corelibs-foundation/
 /build/
 /install/
+/ninja/
 swift.tar.gz
 /compiler-rt/
 /swift-corelibs-libdispatch/

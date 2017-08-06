@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+# UBUNTU_VERSION is local and should increment 1...n
+# UBUNTU_DISTRO  should be like trusty, xenial
 function usage {
   echo "Usage:  UBUNTU_VERSION= UBUNTU_DISTRO= debpackage.sh"
   exit
@@ -18,9 +20,9 @@ fi
 
 ARCH=${ARCH:-amd64}
 PACKAGE_NAME=swift
-PACKAGE_VERSION=3.0
+PACKAGE_VERSION=4.0
 PACKAGE_ROOT=${PACKAGE_NAME}-${PACKAGE_VERSION}
-PACKAGE_DIR=${PACKAGE_ROOT}/opt/swift/swift-3.0
+PACKAGE_DIR=${PACKAGE_ROOT}/opt/swift/swift-4.0
 
 echo "Creating package for $ARCH"
 
